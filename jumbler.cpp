@@ -19,20 +19,22 @@ void questioning()
         cin.ignore(numeric_limits<streamsize>::max(), '\n');
     }
 
-    cout << "How many times do you want to jumble in a single run?\n\n";
+    cout << "\tHow many times do you want to jumble in a single run?\n\n";
     cin >> c;
 
     if (c <= 0)
     {
-        cout << "Invalid Value\n\n";
+        cout << "\tInvalid Value\n\n";
         questioning();
     }
 
-    if (c > 999)
+    if (c > 999999)
     {
-        cout << "Please choose a smaller no.\n\n";
+        cout << "\tPlease choose a smaller no.\n\n";
         questioning();
     }
+
+    cout << "\n\tOk. Now enter the value to be jumbled.\n\n";
 }
 
 int main()
@@ -40,9 +42,9 @@ int main()
 
     srand(time(0));
 
-    cout << "\n\nString Jumbler\n\n";
-    cout << "Type \"endThis\" or ^C to end the program.\n";
-    cout << "Type \"changeTimes\" to change the number of times of jumbling. Max is 999.\n\n";
+    cout << "\n\n\tString Jumbler\n\n";
+    cout << "\tType \"endThis\" or ^C to end the program.\n";
+    cout << "\tType \"changeTimes\" to change the number of times of jumbling. Max is 999.\n\n";
 
     questioning();
 
@@ -81,9 +83,9 @@ int main()
                     jumbledWord[i2] = temp;
                 }
 
-                cout << jumbledWord << endl;
+                cout << "\t" << jumbledWord << "\t" << i << endl;
             }
-            cout << endl;
+            cout << "\t" << endl;
         }
     } while (1 == 1);
 
