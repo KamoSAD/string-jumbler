@@ -27,7 +27,7 @@ int main()
     for (int i = -2147483648; i < 2147483647; i++)
     {
 
-        if (c == 0)
+        if (c <= 0)
         {
             cout << "Invalid Value\n\n";
             cout << "How many times do you want to jumble in a single run?\n\n";
