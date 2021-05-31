@@ -9,8 +9,31 @@
 using namespace std;
 
 string a;
-bool b = false;
 int c;
+
+void questioning()
+{
+    if (cin.fail())
+    {
+        cin.clear();
+        cin.ignore(numeric_limits<streamsize>::max(), '\n');
+    }
+
+    cout << "How many times do you want to jumble in a single run?\n\n";
+    cin >> c;
+
+    if (c <= 0)
+    {
+        cout << "Invalid Value\n\n";
+        questioning();
+    }
+
+    if (c > 999)
+    {
+        cout << "Please choose a smaller no.\n\n";
+        questioning();
+    }
+}
 
 int main()
 {
@@ -18,28 +41,13 @@ int main()
     srand(time(0));
 
     cout << "\n\nString Jumbler\n\n";
-    cout << "Type \"endThis\" to end the program.\n";
+    cout << "Type \"endThis\" or ^C to end the program.\n";
     cout << "Type \"changeTimes\" to change the number of times of jumbling. Max is 999.\n\n";
 
-    cout << "How many times do you want to jumble in a single run?\n\n";
-    cin >> c;
+    questioning();
 
-    for (int i = -2147483648; i < 2147483647; i++)
+    do
     {
-
-        if (c <= 0)
-        {
-            cout << "Invalid Value\n\n";
-            cout << "How many times do you want to jumble in a single run?\n\n";
-            cin >> c;
-        }
-        else if (c > 999)
-        {
-            cout << "Please choose a smaller no.\n\n";
-            cout << "How many times do you want to jumble in a single run?\n\n";
-            cin >> c;
-        }
-
         if (cin.fail())
         {
             cin.clear();
@@ -47,7 +55,7 @@ int main()
         }
 
         cin >> a;
-        cout << "\n";
+        cout << endl;
 
         if (a == "endThis" || a == "aloo404")
         {
@@ -55,8 +63,7 @@ int main()
         }
         else if (a == "changeTimes")
         {
-            cout << "How many times do you want to jumble in a single run?\n\n";
-            cin >> c;
+            questioning();
         }
 
         else
@@ -76,8 +83,9 @@ int main()
 
                 cout << jumbledWord << endl;
             }
+            cout << endl;
         }
-    }
+    } while (1 == 1);
 
     return 0;
 }
